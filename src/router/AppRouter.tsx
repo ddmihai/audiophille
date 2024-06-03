@@ -17,14 +17,13 @@ const AppRouter = () => {
         <Router>
             <Header />
             <Routes>
-                {/* Corrected usage of index prop */}
                 <Route path="/" element={<Home />} />
                 <Route path="/cart" element={<Cart />} />
                 <Route path="/checkout" element={<Checkout />} />
                 <Route path="/headphones" element={<Headphones />} />
-                <Route path="/product/:slug" element={<ProductDetail />} />
                 <Route path="/speakers" element={<Speakers />} />
                 <Route path="/earphones" element={<EarPhones />} />
+                <Route path="/product/:slug" element={<ProductDetail />} />
             </Routes>
             <Footer />
         </Router>

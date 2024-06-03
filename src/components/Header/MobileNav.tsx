@@ -5,7 +5,7 @@ import transparentHeadPhones from '../../assets/transparents/image-xx99-mark-one
 
 const MobileNav = () => {
     return (
-        <section className="flex lg:hidden flex-wrap bg-white p-4 absolute z-50 right-0 left-0 gap-5 rounded-b-xl">
+        <section className="flex lg:hidden flex-wrap bg-white px-4 absolute z-30 inset-x-0 top-24 gap-5 rounded-b-xl pb-10">
             <ReusableProductCard
                 hrefLink="/speakers"
                 title="SPEAKERS"

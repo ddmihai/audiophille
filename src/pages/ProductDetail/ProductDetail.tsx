@@ -1,18 +1,28 @@
-import { useParams } from 'react-router-dom';
+import React from "react";
+import { useParams } from "react-router-dom";
+import data from "../../data/data.json";
+import ProductMainBanner from "./components/ProductMainBanner";
 
 
 
 
-const ProductDetail = () => {
+const ProductDetail: React.FC = () => {
+    const params = useParams<{ slug: string }>();
+    const product = data.find(element => element.slug.toLowerCase() === params.slug?.toLowerCase());
 
-    const params = useParams();
-    console.log(params);
+    if (!product) {
+        return <div>Product not found</div>;
+    }
 
     return (
-        <div>
-
-        </div>
-    )
+        <section>
+            <ProductMainBanner
+                mobileImage={product.image.mobile}
+                tabletImage={product.image.tablet}
+                desktopImage={product.image.desktop}
+            />
+        </section>
+    );
 }
 
-export default ProductDetail
+export default ProductDetail;
