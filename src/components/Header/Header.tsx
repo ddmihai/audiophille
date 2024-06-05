@@ -5,6 +5,7 @@ import { IoMdCart } from "react-icons/io";
 import { IoIosMenu } from "react-icons/io";
 import { useState } from "react";
 import MobileNav from "./MobileNav";
+import Cart from "../Cart/Cart";
 
 
 
@@ -13,9 +14,25 @@ const Header = () => {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const switchHeaderMenu = () => setIsOpen(!isOpen);
 
+
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+
+    const openModal = () => {
+        setIsModalOpen(true);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+    };
+
+
     return (
         <header className="bg-secondary-black px-5 z-50">
             <MaxWidthLayout>
+                <Cart isModalOpen={isModalOpen} closeModal={closeModal} />
+
+
                 <div className="flex wrap items-center py-8 border-b border-white">
                     <IoIosMenu size={30} color="white" className="flex lg:hidden" onClick={switchHeaderMenu} />
                     <img
@@ -34,7 +51,13 @@ const Header = () => {
                     {/* Mobile Navigation */}
                     {isOpen && <MobileNav />}
 
-                    <IoMdCart size={23} color="white" className="ml-auto" />
+                    <IoMdCart
+                        size={23}
+                        color="white"
+                        className="ml-auto cursor-pointer hover:text-primary-brown"
+                        role="button"
+                        onClick={() => openModal()}
+                    />
                 </div>
                 {isOpen && <MobileNav />}
             </MaxWidthLayout>
