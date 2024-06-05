@@ -7,6 +7,7 @@ export default defineConfig({
     port: 3333
   },
 
+  base: '/audiophille/',
 
   resolve: {
     alias: {
