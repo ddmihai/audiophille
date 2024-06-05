@@ -11,7 +11,7 @@ interface IModalProps {
     closeModal: () => void;
 }
 
-interface INewProduct extends Iproduct {
+export interface INewProduct extends Iproduct {
     image: string,
     name: string,
     itemIndividualPrice: number
