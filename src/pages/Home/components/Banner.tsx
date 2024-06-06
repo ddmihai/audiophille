@@ -1,9 +1,23 @@
+import { useNavigate } from "react-router-dom";
 import MaxWidthLayout from "../../../Layouts/MaxWidthLayout"
 import headphoneBGDesktop from '../../../assets/home/desktop/image-header-removebg-preview-mobile.png';
 import ButtonPrimary, { ButtonVariant } from "../../../components/Buttons/ButtonPrimary";
 
 
+import data from '../../../data/data.json';
+
+
+
 const Banner = () => {
+    const navigate = useNavigate();
+
+
+    // get x99markII elements
+    const xx99MarkII = data.find(element => element.name.toLowerCase().includes('xx99 mark ii'));
+
+
+
+
     return (
         <div className="bg-secondary-black">
             <MaxWidthLayout>
@@ -16,7 +30,7 @@ const Banner = () => {
                             <h1 className="text-4xl lg:text-6xl my-5 text-white">XX99 MARKII HEADPHONES</h1>
                             <p className="my-5 text-slate-500">Experience natural, lifelike audio and exceptional build quality made for the passionate music enthusiast.</p>
                             <div>
-                                <ButtonPrimary variant={ButtonVariant.FILL} onClickFunction={() => console.log(123)}>SEE PRODUCT</ButtonPrimary>
+                                <ButtonPrimary variant={ButtonVariant.FILL} onClickFunction={() => navigate(`/product/${xx99MarkII?.slug}`)}>SEE PRODUCT</ButtonPrimary>
                             </div>
                         </div>
                     </div>

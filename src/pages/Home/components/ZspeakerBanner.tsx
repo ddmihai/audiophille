@@ -4,7 +4,23 @@ import zSpeakerMobile from '../../../assets/home/mobile/image-speaker-zx9.png'
 import bgShapes from '../../../assets/home/desktop/pattern-circles.svg'
 import ButtonPrimary, { ButtonVariant } from "../../../components/Buttons/ButtonPrimary"
 
+
+import data from '../../../data/data.json';
+import { useNavigate } from "react-router-dom";
+
 const ZspeakerBanner = () => {
+
+
+    const navigate = useNavigate();
+    const ZX9Speaker = data.find(element => element.name.toLowerCase().includes('zx9 speaker'));
+    const navigateToProduct = () => {
+        navigate(`/product/${ZX9Speaker?.slug}`);
+    }
+
+
+
+
+
     return (
         <section className="mt-10 rounded-xl m-5 overflow-hidden">
             <MaxWidthLayout>
@@ -24,7 +40,7 @@ const ZspeakerBanner = () => {
                             <p className="text-white font-thin mb-5 p-4 max-w-xs lg:p-0 lg:my-10 lg:mb-12">Upgrade to premium speakers that are phenomenally built to deliver truly remarkable sound.</p>
                             <div className="max-w-fit mx-auto lg:min-w-full">
                                 <ButtonPrimary
-                                    onClickFunction={() => console.log(12)}
+                                    onClickFunction={() => navigateToProduct()}
                                     variant={ButtonVariant.DARK}>SEE PRODUCT</ButtonPrimary>
                             </div>
                         </div>

@@ -5,7 +5,19 @@ import speakersDesktop from '../../../assets/home/desktop/image-speaker-zx7.jpg'
 import ButtonPrimary, { ButtonVariant } from "../../../components/Buttons/ButtonPrimary";
 
 
+
+import data from "../../../data/data.json";
+import { useNavigate } from "react-router-dom";
+
 const ZX7Speaker = () => {
+
+    const navigate = useNavigate();
+    const ZX7Speaker = data.find(element => element.name.toLowerCase().includes('zx9 speaker'));
+    const navigateToProduct = () => {
+        navigate(`/product/${ZX7Speaker?.slug}`);
+    }
+
+
     return (
         <div className="p-5">
             <MaxWidthLayout>
@@ -15,7 +27,7 @@ const ZX7Speaker = () => {
                         <div className="mt-6">
                             <ButtonPrimary
                                 variant={ButtonVariant.OUTLINE}
-                                onClickFunction={() => console.log(122)}>
+                                onClickFunction={() => navigateToProduct()}>
                                 SEEP PRODUCT
                             </ButtonPrimary>
                         </div>

@@ -5,11 +5,18 @@ import { INewProduct } from "../../components/Cart/Cart";
 import ButtonPrimary, { ButtonVariant } from "../../components/Buttons/ButtonPrimary";
 
 
+
+
+
+
+
 const Checkout = () => {
 
     const payload = useLocation();
     const { state } = payload;
+
     console.log(state.products);
+
 
     const navigate = useNavigate();
 
